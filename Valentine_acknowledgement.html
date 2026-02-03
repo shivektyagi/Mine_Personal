@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffeef8;
+            overflow: hidden;
+        }
+        h1 { color: #d63384; font-size: 3rem; text-align: center; }
+        .buttons { position: relative; width: 300px; height: 100px; margin-top: 20px; }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        #yesBtn { background-color: #ff4d6d; color: white; position: absolute; left: 0; }
+        #noBtn { background-color: #adb5bd; color: white; position: absolute; right: 0; }
+        #yesBtn:hover { transform: scale(1.1); background-color: #ff758f; }
+        
+        /* Pop-up Styles */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            z-index: 100;
+        }
+        .emoji { font-size: 4rem; }
+    </style>
+</head>
+<body>
+
+    <h1>Hey, Aanchal Tyagi Will you be my Valentine? ❤️</h1>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="celebrate()">Yes!</button>
+        <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
+    </div>
+
+    <div id="popup">
+    <div class="emoji">🫶🫠✨</div>
+
+    <h2>Wow. Shocking. Absolutely unexpected.</h2>
+
+    <p>
+        I mean… you saying YES?  
+        Totally didn’t see that coming 😏  
+        <br><br>
+        But seriously — you just made my heart do a happy little dance.
+        Congratulations, you’re officially stuck with me now 💖
+    </p>
+
+    <div class="emoji">🪩💘🥰</div>
+
+    <button onclick="closePopup()" 
+        style="margin-top:20px; background:#ff4d6d; color:white; padding:10px 25px; border-radius:30px; border:none; font-size:1rem;">
+        Sealed Forever 🫶
+    </button>
+</div>
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            // Move the button to a random position within the screen
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            document.getElementById('popup').style.display = 'block';
+            // Add some confetti effect or just the happy message
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
